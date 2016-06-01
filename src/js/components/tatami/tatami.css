@@ -3,10 +3,6 @@
   display: flex;
 }
 
-.tatami > * {
-  border: dotted 1px red;
-}
-
 .overlay {
   z-index: 1000;
   position: absolute;
@@ -71,6 +67,7 @@
     display: flex;
     width: 100%;
     height: 100%;
+    background-color: transparent;
     background-color: rgba(100,100,100,0.7);
   }
 
@@ -98,16 +95,14 @@
 @media (min-width: 1280px) {
   .drawer {
     min-width: 20rem;
-    padding-top: 0px;
+    padding-top: 0;
   }
+
   .toolbar {
     min-width: 8rem;
     display: flex;
   }
-  .drawer {
-    background-color: inherit;
-    box-shadow: inherit;
-  }
+
   .container > #searchbar {
     display: flex;
   }
