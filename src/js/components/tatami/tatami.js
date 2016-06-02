@@ -5,7 +5,9 @@ const Drawer = (props) => {
   const drawerClass = props.drawer ? 'open' : '';
   return (
     <div className={`drawer animated shadow-right ${drawerClass}`}>
-      {props.children}
+      <div className="content">
+        {props.children}
+      </div>
     </div>
   );
 };

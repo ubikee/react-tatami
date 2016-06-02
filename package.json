@@ -1,7 +1,7 @@
 {
-  "name": "shipments",
+  "name": "react-tatami",
   "version": "0.0.1",
-  "description": "SampleBook Shipment client for International offices",
+  "description": "React material app layout",
   "scripts": {
     "start": "webpack-dev-server"
   },

@@ -4,14 +4,12 @@ import './app.css';
 import './palette-indigo.css';
 
 const App = () => (
-  <div>
-    <Tatami>
-      <Drawer>drawer</Drawer>
-      <Container><div>container</div></Container>
-      <Toolbar>toolbar</Toolbar>
-      <Overlay>xxx</Overlay>
-    </Tatami>
-  </div>
+  <Tatami>
+    <Drawer>drawer</Drawer>
+    <Container><div>container</div></Container>
+    <Toolbar>toolbar</Toolbar>
+    <Overlay>xxx</Overlay>
+  </Tatami>
 );
 
 export default App;
