@@ -18,11 +18,13 @@ Drawer.propTypes = {
 };
 
 const Overlay = (props) => {
-  const overlayClass = props.drawer || props.dialog ? 'open' : '';
+  const overlayClass = props.drawer ? 'open drawer' : props.dialog ? 'open dialog' : '';
   const dialogClass = props.dialog ? 'open' : '';
   return (
     <div className={`overlay center centred ${overlayClass}`} onClick={props.toggleOverlay}>
-      <div className={`dialog ${dialogClass}`}></div>
+      <div className={`dialog ${dialogClass}`}>
+        {props.dialogContent}
+      </div>
     </div>
   );
 };
@@ -31,11 +33,12 @@ Overlay.propTypes = {
   toggleOverlay: React.PropTypes.func,
   drawer: React.PropTypes.bool,
   dialog: React.PropTypes.bool,
+  dialogContent: React.PropTypes.bool,
 };
 
 const Container = (props) => {
   const passToggleDrawer = (child) =>
-    React.cloneElement(child, { toggleDrawer: props.toggleDrawer });
+    React.cloneElement(child, { toggleDrawer: props.toggleDrawer, toggleDialog: props.toggleDialog });
 
   return (
     <div className="container shadow-right animated">
@@ -66,15 +69,15 @@ class Tatami extends React.Component {
     children: React.PropTypes.node,
   }
 
-  state = { drawer: false, dialog: false };
+  state = { drawer: false, dialog: false, dialogContent: null };
 
   toggleDrawer = (forced) => {
     const drawerState = forced != null ? forced : !this.state.drawer;
     this.setState({ drawer: drawerState });
   }
 
-  toggleDialog = () => {
-    this.setState({ dialog: !this.state.dialog });
+  toggleDialog = (dialog) => {
+    this.setState({ dialog: !this.state.dialog , dialogContent: dialog});
   }
 
   toggleOverlay = () => {
@@ -86,6 +89,7 @@ class Tatami extends React.Component {
     React.cloneElement(child, {
       drawer: this.state.drawer,
       dialog: this.state.dialog,
+      dialogContent: this.state.dialogContent,
       toggleDrawer: this.toggleDrawer,
       toggleDialog: this.toggleDialog,
       toggleOverlay: this.toggleOverlay,

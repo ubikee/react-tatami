@@ -1,0 +1,58 @@
+.grid {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.tile {
+  min-height: 25rem;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tile .media {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tile .info {
+  z-index: 2;
+  min-height: 6.8rem;
+  max-height: 6.8rem;
+
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.1rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.griditem {
+  margin: .2rem;
+}
+
+@media (max-width: 600px) {
+  .griditem {
+    flex: 0 1 calc(100% - .4rem);
+  }
+}
+
+@media (min-width: 600px) {
+  .griditem {
+    flex: 0 1 calc(50% - .4rem);
+  }
+}
+
+@media (min-width: 960px) {
+  .griditem {
+    flex: 0 1 calc(25% - .4rem);
+  }
+}
