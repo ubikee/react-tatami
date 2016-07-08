@@ -1,4 +1,5 @@
 .split {
+  flex: 1;
   display: flex;
   overflow: hidden;
 }
@@ -11,7 +12,26 @@
   flex-direction: column;
 }
 
+.split .split-panel {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 @media (max-width: 959px) {
+
+  .split .split-panel {
+    min-width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .split .split-panel.closed {
+    min-width: 0.001vw;
+    max-width: 0.001vw;
+  }
+
   .split .auxiliar {
     display: none;
   }
@@ -22,10 +42,28 @@
     min-width: 20rem;
     max-width: 20rem;
   }
+  .split-panel:first-child {
+    min-width: 35vw;
+    max-width: 35vw;
+    border-right: solid 1px #B6B6B6;
+  }
+  .split-panel:nth-child(2) {
+    flex: 1;
+  }
 }
+
 @media (min-width: 1280px) {
   .split .auxiliar {
-    min-width: 35rem;
-    max-width: 35rem;
+    min-width: 35vw;
+    max-width: 35vw;
+  }
+  .split-panel:first-child {
+    min-width: 35vw;
+    max-width: 35vw;
+    border-right: solid 1px #B6B6B6;
+  }
+  .split-panel:nth-child(2) {
+    min-width: 65vw;
+    max-width: 65vw;
   }
 }

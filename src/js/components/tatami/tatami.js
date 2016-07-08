@@ -41,7 +41,7 @@ const Container = (props) => {
     React.cloneElement(child, { toggleDrawer: props.toggleDrawer, toggleDialog: props.toggleDialog });
 
   return (
-    <div className="container shadow-right animated">
+    <div className="container animated">
       <div id="searchbar" />
       {React.Children.map(props.children, passToggleDrawer)}
     </div>
