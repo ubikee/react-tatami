@@ -30,6 +30,7 @@
   .split .split-panel.closed {
     min-width: 0.001vw;
     max-width: 0.001vw;
+    display: none;
   }
 
   .split .auxiliar {
