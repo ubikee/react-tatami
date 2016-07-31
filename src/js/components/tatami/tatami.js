@@ -18,13 +18,15 @@ Drawer.propTypes = {
 };
 
 const Overlay = (props) => {
-  const overlayClass = props.drawer ? 'open drawer' : props.dialog ? 'open dialog' : '';
-  const dialogClass = props.dialog ? 'open' : '';
+  const overlayClass = props.drawer ? 'open drawer' : props.dialog ? 'open' : '';
+  const dialogClass = props.dialog ? 'dialog open' : 'dialog';
   return (
+    <div>
     <div className={`overlay center centred ${overlayClass}`} onClick={props.toggleOverlay}>
-      <div className={`dialog ${dialogClass}`}>
+    </div>
+    <div className={`${dialogClass}`}>
         {props.dialogContent}
-      </div>
+    </div>
     </div>
   );
 };
